@@ -5,11 +5,13 @@ import DetailsScreens from '../screens/DetailsScreens';
 import InformationScreen from '../screens/InformationScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import LoginScreen from '../screens/LoginScreen';
+import IndexStack from './IndexStack';
+import DetailsStack from './DetailsStack';
 
-const Drawer = createDrawerNavigator();
-const Tab = createBottomTabNavigator();
+/* const Drawer = createDrawerNavigator(); */
 
-export default function AppNavigation() {
+/* export default function AppNavigation() {
     return (
         <Drawer.Navigator>
           <Drawer.Screen name="index" component={IndexScreen} />
@@ -17,19 +19,20 @@ export default function AppNavigation() {
           <Drawer.Screen name="information" component={InformationScreen} />
         </Drawer.Navigator>
     );
-}
+} */
 
-/* const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function AppNavigation() {
     return (
-        <Tab.Navigator>
-          <Tab.Screen name="index" component={IndexScreen} />
-          <Tab.Screen name="details" component={DetailsScreens} />
-          <Tab.Screen name="information" component={InformationScreen} />
+        <Tab.Navigator screenOptions={{headerShown: false}}>
+          <Tab.Screen name="index" component={IndexStack} title={'Inicio'}/>
+          <Tab.Screen name="details" component={DetailsStack} />
+          <Tab.Screen name="information" component={InformationScreen} options={{title: 'Informacion', headerShown: true}} />
+          <Tab.Screen name="login" component={LoginScreen} />
         </Tab.Navigator>
     );
-} */
+}
 
 
 /* const Stack = createNativeStackNavigator();

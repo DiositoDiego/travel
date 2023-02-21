@@ -12,6 +12,8 @@ export default function IndexScreen(props) {
        />
       <Button title='Ir a informacion'
       onPress={() => navigation.navigate('information')}/>
+      <Button title='Ir a Login'
+      onPress={() => navigation.navigate('loginS', {Screen: 'login'})}/>
     </View>
   )
 }
