@@ -4,7 +4,8 @@ import IndexScreen from '../screens/IndexScreen';
 import DetailsScreens from '../screens/DetailsScreens';
 import InformationScreen from '../screens/InformationScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { Icon } from 'react-native-elements';
+//import { createDrawerNavigator } from '@react-navigation/drawer';
 import LoginScreen from '../screens/LoginScreen';
 import IndexStack from './IndexStack';
 import DetailsStack from './DetailsStack';
@@ -25,13 +26,24 @@ const Tab = createBottomTabNavigator();
 
 export default function AppNavigation() {
     return (
-        <Tab.Navigator screenOptions={{headerShown: false}}>
+        <Tab.Navigator screenOptions={{headerShown: false,
+        tabBarActiveTintColor: "red",
+        tabBarInactiveTintColor: "green",
+        tabBarIcon: () => showIcons()}}>
           <Tab.Screen name="index" component={IndexStack} title={'Inicio'}/>
           <Tab.Screen name="details" component={DetailsStack} />
           <Tab.Screen name="information" component={InformationScreen} options={{title: 'Informacion', headerShown: true}} />
-          <Tab.Screen name="login" component={LoginScreen} />
         </Tab.Navigator>
     );
+}
+
+function showIcons(){
+    return (
+        <Icon type='material-community'
+        name='home-circle'
+        color={'black'}
+        size={25}/>
+    )
 }
 
 
